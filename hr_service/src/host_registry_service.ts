@@ -83,8 +83,9 @@ app.use(function (req, res, next) {
   console.dir(req.subdomains);
   console.log('client ip: ' + req.ip);
   // get the hostname without optional port number
-  const re_port = RegExp(':.*$');
-  const host_pure_name = req.hostname.replace(re_port, '');
+  //const re_port = RegExp(':.*$'); // not needed, port-number seems to be already removed by expressjs
+  //const host_pure_name = req.hostname.replace(re_port, '');
+  const host_pure_name = req.hostname;
   //
   let new_host: any = {};
   hr_config.forEach( (item) => {

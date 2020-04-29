@@ -39,6 +39,11 @@ const json_config = [
   {
     rehost: '^nothing\.',
   },
+  // debugging
+  {
+    rehost: '^localhost$',
+    port: 8009,
+  },
 ];
 
 // exporting the json-object
