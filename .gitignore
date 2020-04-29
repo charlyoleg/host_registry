@@ -1,0 +1,12 @@
+# .gitignore for host_registry
+*~
+*.swp
+node_modules
+.venv
+host_registry/dist/
+host_registry/log/
+dist/
+docs/build/
+*.pdf
+server_prod.key
+server_prod.crt
