@@ -37,6 +37,7 @@
     "serve_app1_prod_http": "NODE_ENV='production' node hosts/app1/dist/app1.js",
     "start_app1": "run-s clean_app1 build_app1 serve_app1",
     "check_app1": "curl -k https://localhost:8001",
+    "check_hrs": "curl -k https://zzz.localhost:8443",
     "serve_app2": "PORT_NUM=8002 KEYWORD='app2' node hosts/app1/dist/app1.js",
     "serve_app3": "PORT_NUM=8003 KEYWORD='app3' node hosts/app1/dist/app1.js",
     "serve_app4": "PORT_NUM=8004 KEYWORD='app4' node hosts/app1/dist/app1.js",
