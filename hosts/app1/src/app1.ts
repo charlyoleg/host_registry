@@ -13,9 +13,10 @@ import * as https from "https";
 // Initialization of the express-app
 // ####################################
 
-let default_app_https_port = 8001;
-let default_key_filename = './server_dev.key';
-let default_certificate_filename = './server_dev.crt';
+const default_app_https_port = 8001;
+const default_key_filename = './server_dev.key';
+const default_certificate_filename = './server_dev.crt';
+const default_app_keyword = "app1";
 
 if(process.env.NODE_ENV == "production"){
   console.log("Running in ENV production ...");
@@ -54,11 +55,14 @@ app.use("/", (req, res, next) => {
 // http-app just to redirect http to https
 // ####################################
 
+const app_keyword = process.env.KEYWORD || default_app_keyword;
+
 app.use(function (req, res, next) {
   console.log('hostname: ' + req.hostname);
   console.dir(req.subdomains);
+  console.log (req.originalUrl);
   console.log('client ip: ' + req.ip);
-  res.end('Hello from app1!');
+  res.end('Hello from '+ app_keyword + '!');
 });
 
 
