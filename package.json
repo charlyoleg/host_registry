@@ -40,8 +40,10 @@
     "serve_app3": "PORT_NUM=8003 KEYWORD='app3' node hosts/app1/dist/app1.js",
     "serve_app4": "PORT_NUM=8004 KEYWORD='app4' node hosts/app1/dist/app1.js",
     "serve_app5": "PORT_NUM=8005 KEYWORD='app5' node hosts/app1/dist/app1.js",
-    "serve_hosts": "run-p serve_app1 serve_app2 serve_app3 serve_app4 serve_app5",
-    "serve_all": "run-p serve_hosts serve_hrs_prod_http",
+    "serve_hosts": "run-p -l serve_app1 serve_app2 serve_app3 serve_app4 serve_app5",
+    "clean_all": "run-s clean_hrs clean_app1",
+    "build_all": "run-s clean_all build_hrs build_app1",
+    "serve_all": "run-p -l serve_hosts serve_hrs_prod_http",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
