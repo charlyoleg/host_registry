@@ -18,3 +18,11 @@ In a bash-terminal::
   cd host_registry
   npm i
 
+
+ToDo
+====
+
+- better regex (points, full constraint for SLD and TLD)
+- pre-compute the regex
+- docs
+
