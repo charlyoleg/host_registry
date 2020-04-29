@@ -44,6 +44,7 @@
     "clean_all": "run-s clean_hrs clean_app1",
     "build_all": "run-s clean_all build_hrs build_app1",
     "serve_all": "run-p -l serve_hosts serve_hrs_prod_http",
+    "serve_all_dev": "run-p -l serve_hosts serve_hrs",
     "check_process": "ps aux | grep node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
