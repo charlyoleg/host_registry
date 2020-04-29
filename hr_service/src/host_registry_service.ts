@@ -111,7 +111,8 @@ app.use(function (req, res, next) {
     console.log("redirects to new url: " + new_url);
     res.redirect(new_url);
   } else {
-    res.end('Hello World!');
+    //res.send(JSON.stringify(hr_config, null, ' '));
+    res.end('No matching host for ' + req.hostname);
   }
 });
 
