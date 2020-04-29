@@ -2,7 +2,7 @@
 
 "use strict";
 
-import * as hr_config from "./hrs_config.ts";
+import hr_config from "./hrs_config";
 
 import * as express from "express";
 import * as morgan from "morgan";
@@ -86,8 +86,8 @@ app.use(function (req, res, next) {
   const re_port = RegExp(':.*$');
   const host_pure_name = req.hostname.replace(re_port, '');
   //
-  let new_host = {};
-  hr_config.foreach( (item) => {
+  let new_host: any = {};
+  hr_config.forEach( (item) => {
     const regex = RegExp(item.rehost);
     if(regex.test(host_pure_name)){
       console.log('RegExp ' + item.rehost + ' matches ' + host_pure_name);
@@ -104,7 +104,7 @@ app.use(function (req, res, next) {
   }
   if(new_host.hasOwnProperty('port')){
     redirect_action = true;
-    new_url += ":" + app_https_port;
+    new_url += ":" + new_host.port;
   }
   new_url += req.originalUrl;
   if(redirect_action){

@@ -2,7 +2,7 @@
 
 "use strict";
 
-json_config = [
+const json_config = [
   {
     rehost: '^beautiful\.ovh$',
     port: 8001,

@@ -20,6 +20,14 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
+    "clean_hrs": "rm -fr hr_service/dist",
+    "build_hrsjs": "tsc -p hr_service",
+    "cpy_hrs": "cpy hr_service/keys/*.crt hr_service/keys/*.key hr_service/dist/",
+    "build_hrs": "run-s build_hrsjs cpy_hrs",
+    "eslint_hrs": "eslint hr_service/src/**",
+    "serve_hrs": "node hr_service/dist/host_registry_service.js",
+    "serve_hrs_prod_http": " NODE_ENV='production' HTTP_ENABLE=1 node hr_service/dist/host_registry_service.js",
+    "start_hrs": "run-s clean_hrs build_hrs serve_hrs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
