@@ -1,0 +1,35 @@
+{
+  "name": "host_registry",
+  "version": "1.0.0",
+  "description": "an experimental port redirection service",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "rotating-file-stream": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/morgan": "^1.9.0",
+    "@types/node": "^13.13.4",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "cpy-cli": "^3.1.0",
+    "eslint": "^6.8.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlyoleg/host_registry.git"
+  },
+  "author": "charlyoleg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlyoleg/host_registry/issues"
+  },
+  "homepage": "https://github.com/charlyoleg/host_registry#readme"
+}
