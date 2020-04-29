@@ -27,6 +27,7 @@
     "eslint_hrs": "eslint hr_service/src/**",
     "serve_hrs": "node hr_service/dist/host_registry_service.js",
     "serve_hrs_prod_http": "NODE_ENV='production' HTTP_ENABLE=1 node hr_service/dist/host_registry_service.js",
+    "serve_hrs_prod_http2": "NODE_ENV='production' HTTP_ENABLE=1 pm2 start node hr_service/dist/host_registry_service.js --name rediry",
     "start_hrs": "run-s clean_hrs build_hrs serve_hrs",
     "clean_app1": "rm -fr hosts/app1/dist",
     "build_app1js": "tsc -p hosts/app1",
