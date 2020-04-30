@@ -17,12 +17,12 @@ In a bash-terminal::
   git clone https://github.com/charlyoleg/host_registry
   cd host_registry
   npm i
+  npm run start_hrs
 
 
-ToDo
-====
+In a second bash-terminal::
 
-- better regex (points, full constraint for SLD and TLD)
-- pre-compute the regex
-- docs
+  curl -k https://ZZZ.LocalHost:8443/aa
+
+
 
