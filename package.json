@@ -61,6 +61,8 @@
     "accesslog_mkdir": "mkdir -p hosts/app_accesslog_report/dist",
     "accesslog_gen_html": "goaccess hr_service/log/*.log --log-format=COMBINED -a -o hosts/app_accesslog_report/dist/index.html",
     "accesslog_html": "run-s accesslog_cleanup accesslog_mkdir accesslog_gen_html",
+    "run_accesslog_page": "scr/serve_accesslog_report.sh",
+    "run_accesslog_page": "pm2 start scr/serve_accesslog_report.sh prod --name accyloggy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
