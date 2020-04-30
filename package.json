@@ -20,6 +20,13 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
+    "install_py": "PIPENV_VENV_IN_PROJECT=1 pipenv install",
+    "install_ubuntu": "sudo apt install goaccess",
+    "install_prerequisite": "run-s install_py install_ubuntu",
+    "clean_docs": "rm -fr docs/build docs/*.pdf",
+    "build_docs": "pipenv run sphinx-build -b html docs/ docs/build/",
+    "view_docs": "sensible-browser docs/build/index.html",
+    "docs": "run-s clean_docs build_docs view_docs",
     "clean_hrs": "rm -fr hr_service/dist",
     "build_hrsjs": "tsc -p hr_service",
     "cpy_hrs": "cpy hr_service/keys/*.crt hr_service/keys/*.key hr_service/dist/",
@@ -48,6 +55,11 @@
     "serve_all": "run-p -l serve_hosts serve_hrs_prod_http",
     "serve_all_dev": "run-p -l serve_hosts serve_hrs",
     "check_process": "ps aux | grep node",
+    "accesslog_terminal": "goaccess hr_service/log/*.log --log-format=COMBINED",
+    "accesslog_cleanup": "rm -f hosts/app2/dist/accesslog_report/index.html",
+    "accesslog_mkdir": "mkdir -p hosts/app2/dist/accesslog_report",
+    "accesslog_gen_html": "goaccess hr_service/log/*.log --log-format=COMBINED -a -o hosts/app2/dist/accesslog_report/index.html",
+    "accesslog_html": "run-s accesslog_cleanup accesslog_mkdir accesslog_gen_html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

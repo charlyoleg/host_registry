@@ -6,6 +6,7 @@ node_modules
 hr_service/dist/
 hr_service/log/
 hosts/app1/dist/
+hosts/app2/dist/
 docs/build/
 *.pdf
 server_prod.key

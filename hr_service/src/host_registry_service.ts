@@ -132,7 +132,7 @@ app.use(function (req, res, next) {
     console.log("redirects to new url: " + new_url);
     res.redirect(new_url);
   } else {
-    console.log("default page");
+    console.log("default no matching message");
     //res.send(JSON.stringify(hr_config, null, ' '));
     res.end('No matching host for ' + req.hostname);
   }
