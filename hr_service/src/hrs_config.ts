@@ -14,6 +14,12 @@ interface Ivhost {
 
 
 const hrs_config: Ivhost[] = [
+  // accesslog_report of this host_registry_service
+  {
+    rehost: '^accylogy\\\.',
+    port: 6101,
+  },
+  // other examples
   {
     rehost: '^beautiful\\\.ovh$',
     port: 8001,
