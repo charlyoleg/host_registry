@@ -2,7 +2,7 @@
 
 "use strict";
 
-import hr_config from "./hrs_config";
+import {Ivhost, hrs_config} from "./hrs_config";
 
 import * as express from "express";
 import * as morgan from "morgan";
@@ -11,6 +11,26 @@ import * as path from "path";
 import * as fs from "fs";
 import * as http from "http";
 import * as https from "https";
+
+
+
+// ####################################
+// Initialize hrs_config2
+// ####################################
+
+interface Ivhost2 extends Ivhost {
+  regex: RegExp;
+}
+
+let hrs_config2: Ivhost2[] = [];
+hrs_config.forEach( (item) => {
+  if(item.hasOwnProperty('rehost')){
+    const regex = RegExp(item.rehost, 'i');
+    let one_entry = <Ivhost2> Object.assign({}, item);
+    one_entry['regex'] = regex;
+    hrs_config2.push(one_entry);
+  }
+});
 
 
 // ####################################
@@ -79,18 +99,18 @@ app.use("/", (req, res, next) => {
 // ####################################
 
 app.use(function (req, res, next) {
-  console.log('hostname: ' + req.hostname);
-  console.dir(req.subdomains);
-  console.log('client ip: ' + req.ip);
+  //console.log('hostname: ' + req.hostname);
+  //console.dir(req.subdomains);
+  //console.log('client ip: ' + req.ip);
+  console.log('REQUEST from client-ip ' + req.ip +  ' for hostname: ' + req.hostname);
   // get the hostname without optional port number
   //const re_port = RegExp(':.*$'); // not needed, port-number seems to be already removed by expressjs
   //const host_pure_name = req.hostname.replace(re_port, '');
   const host_pure_name = req.hostname;
   //
   let new_host: any = {};
-  hr_config.forEach( (item) => {
-    const regex = RegExp(item.rehost);
-    if(regex.test(host_pure_name)){
+  hrs_config2.forEach( (item) => {
+    if(item.regex.test(host_pure_name)){
       console.log('RegExp ' + item.rehost + ' matches ' + host_pure_name);
       new_host = Object.assign({}, item);
     }
@@ -112,6 +132,7 @@ app.use(function (req, res, next) {
     console.log("redirects to new url: " + new_url);
     res.redirect(new_url);
   } else {
+    console.log("default page");
     //res.send(JSON.stringify(hr_config, null, ' '));
     res.end('No matching host for ' + req.hostname);
   }

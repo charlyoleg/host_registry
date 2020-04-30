@@ -2,42 +2,58 @@
 
 "use strict";
 
-const json_config = [
+
+// FYI: Domain Name System (DNS) names is case insensitive
+
+
+interface Ivhost {
+  rehost: string;
+  port?: number,
+  url?: string
+}
+
+
+const hrs_config: Ivhost[] = [
   {
-    rehost: '^beautiful\.ovh$',
+    rehost: '^beautiful\\\.ovh$',
     port: 8001,
   },
   {
-    rehost: '^awesomely\.ovh$',
+    rehost: '^awesomely\\\.ovh$',
     port: 8002,
   },
   {
-    rehost: '^www\.',
+    rehost: '^www\\\.',
     port: 8003,
   },
   {
-    rehost: '^zzz\.',
+    rehost: '^zzz\\\.',
     port: 8004,
   },
   {
-    rehost: '^abc\.def\.',
+    rehost: '^abc\\\.def\\\.',
     port: 8005,
   },
   {
-    rehost: '^lll\.beautifully\.ovh$',
+    rehost: '^lll\\\.beautifully\\\.ovh$',
     url: 'https://awesomely.ovh',
   },
   {
-    rehost: '^mmm\.beautifully\.ovh$',
+    rehost: '^mmm\\\.beautifully\\\.ovh$',
     url: 'https://abc.awesomely.ovh:8005',
   },
   {
-    rehost: '^nnn\.beautifully\.ovh$',
+    rehost: '^nnn\\\.beautifully\\\.ovh$',
     url: 'https://abc.awesomely.ovh',
     port: 8005,
   },
+  //{ // invalid: the port-number is specified twice
+  //  rehost: '^nnn\\\.beautifully\\\.ovh$',
+  //  url: 'https://abc.awesomely.ovh:8005',
+  //  port: 8005,
+  //},
   {
-    rehost: '^nothing\.',
+    rehost: '^nothing\\\.',
   },
   // debugging
   {
@@ -47,5 +63,5 @@ const json_config = [
 ];
 
 // exporting the json-object
-export default json_config;
+export {Ivhost, hrs_config};
 
