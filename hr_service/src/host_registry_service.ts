@@ -146,7 +146,7 @@ app.use(function (req, res, next) {
 if(process.env.HTTP_ENABLE){
   // ===> with http
   http.createServer(app).listen(app_http_port, () => {
-    console.log('http_app  : listening at http port ' + app_http_port + ' to redirect to https');
+    console.log('http_app  : listening at http port ' + app_http_port);
   });
 }
 
