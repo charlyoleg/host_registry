@@ -98,6 +98,9 @@ app.use("/", (req, res, next) => {
 // http-app just to redirect http to https
 // ####################################
 
+let g_count_redirection = 0;
+let g_count_not_found = 0;
+
 app.use(function (req, res, next) {
   //console.log('hostname: ' + req.hostname);
   //console.dir(req.subdomains);
@@ -129,10 +132,14 @@ app.use(function (req, res, next) {
   }
   new_url += req.originalUrl;
   if(redirect_action){
-    console.log("redirects to new url: " + new_url);
+    g_count_redirection += 1;
+    const tmp_sum = g_count_redirection + g_count_not_found;
+    console.log("redirects to new url: " + new_url + ". Stat: " + tmp_sum + " - " + g_count_redirection + " - " + g_count_not_found);
     res.redirect(new_url);
   } else {
-    console.log("default no matching message");
+    g_count_not_found += 1;
+    const tmp_sum = g_count_redirection + g_count_not_found;
+    console.log("default no matching message. Stat: " + tmp_sum + " - " + g_count_redirection + " - " + g_count_not_found);
     //res.send(JSON.stringify(hr_config, null, ' '));
     res.end('No matching host for ' + req.hostname);
   }
