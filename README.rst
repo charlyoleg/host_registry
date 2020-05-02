@@ -8,7 +8,7 @@ Presentation
 
 This repository contains experimental code for replacing *reverse-proxy* with *port-redirection*.
 
-More information under readthdocs_
+More information under readthedocs_
 
 .. _readthedocs : https://host-registry.readthedocs.io/en/latest/
 
