@@ -9,10 +9,9 @@ Presentation
 This document aims at exploring possibilities to setup a website.
 
 
+
 Typical topology
 ================
-
-.. image:: typical_topology.png
 
 Let's say, I want to create 5 websites with the following names:
 
@@ -20,10 +19,11 @@ Let's say, I want to create 5 websites with the following names:
 
 I have to buy the two **domain-names**, *beautifully.ovh* and *awesomely.ovh*. I also have to buy a server (i.e. a computer working 24 hours a day and connected to internet), such as vps_, where my web-applications and databases will run.
 
-For each *domain-name*, I have bought, I can register (almost) any sub-domains, I want. The wilcard \* let you provide an IP-address to all sub-domains, not explicitly registered.
+For each *domain-name* I can register (almost) any sub-domains. For each sub-domain I can register a A-record (IPv4), a AAAA-record (IPv6) or a CNAME-record (i.e. an alias to an other hostanme) . The wilcard \* let you provide an IP-address to all sub-domains, not explicitly registered.
 
 .. _vps: https://www.ovhcloud.com/en/vps/
 
+.. image:: typical_topology.png
 
 With this typical topology, when someone wants to visit one of the websites from his client-laptop, the following sequence happens:
 
@@ -117,6 +117,6 @@ Some more ideas for the service registry:
 
 - hash instead of a service-name
 - the service could update its IP-address and port-number dynamically
-- the *load-balancing* could be implmented from the client-side (with a list of servers for each service)
+- the *load-balancing* could be implemented from the client-side (with a list of servers for each service)
 
 
