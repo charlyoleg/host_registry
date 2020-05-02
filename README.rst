@@ -14,7 +14,7 @@ More information under readthedocs_
 
 Or visit the example page blabla_
 
-.. _blabla : blabla.billet.ovh
+.. _blabla : https://blabla.billet.ovh
 
 
 
