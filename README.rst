@@ -12,6 +12,11 @@ More information under readthdocs_
 
 .. _readthedocs : https://host-registry.readthedocs.io/en/latest/
 
+Or visit the example page blabla_
+
+.. _blabla : blabla.billet.ovh
+
+
 
 Getting started
 ===============
