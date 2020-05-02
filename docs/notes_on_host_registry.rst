@@ -73,6 +73,15 @@ nodejs_ offers the capacity of directly serving http-requests from internet. Bef
 .. _nginx: https://nginx.org/
 
 
+Notice, that nowadays, some *reverse-proxy* are implemented with nodejs with some of the following solutions:
+
+- https://github.com/http-party/node-http-proxy
+- https://github.com/chimurai/http-proxy-middleware
+- https://github.com/expressjs/vhost
+- https://github.com/OptimalBits/redbird
+- https://github.com/villadora/express-http-proxy
+
+
 So now, each web-application, implemented with nodejs_, can directly face internet. The wish to get rid of the *reverse-proxy* is getting higher. Two options are described below:
 
 - a port-redirection service
@@ -102,7 +111,7 @@ Pros:
 
 Cons:
 
-- the port-numbers of the web-application if visible in the URL of the http-request
+- the port-number of the web-application if visible in the URL of the http-request
 
 
 Service registry
