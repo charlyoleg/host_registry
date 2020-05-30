@@ -12,6 +12,7 @@ Welcome to host_registry's documentation!
 
    README
    notes_on_host_registry
+   notes_on_web_app_concepts
 
 
 
