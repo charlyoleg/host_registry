@@ -4,7 +4,7 @@
   "description": "an experimental port redirection service",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "http-server": "^0.12.3",
     "morgan": "^1.10.0",
     "rotating-file-stream": "^2.1.0"
